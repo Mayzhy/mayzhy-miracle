@@ -7,14 +7,8 @@ public class PlayerMouvement : MonoBehaviour
     //Mouvement du player
 
     public float speed;
-    Animator animator;
-
-
-    private void Start()
-    {
-        animator = GetComponent<Animator>();
-    }
     
+   
     void Update()
     {
         float horizontal = Input.GetAxis("Horizontal");
@@ -23,9 +17,6 @@ public class PlayerMouvement : MonoBehaviour
         {
             vertical = 0;
         }
-
-        animator.SetFloat("Vertical", vertical);
-        animator.SetFloat("Horizontal", horizontal);
 
         Vector3 moveDirection = new Vector3(horizontal, vertical, 0);
         moveDirection *= speed * Time.deltaTime;
